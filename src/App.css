@@ -59,3 +59,33 @@
   background-color: #e0e0e0;
 }
 
+.form-div {
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-right: 50px;
+  margin-left: 450px;
+}
+
+.form-buttons {
+  text-align: left;
+  margin-right: 50px;
+  margin-left: 450px;
+}
+
+.form-group-margin-bottom {
+  margin-bottom:15px;
+}
+
+.form-input-width-50 {
+  width:50%;
+}
+
+.form-input-width-25 {
+  width:25%;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;
+}
