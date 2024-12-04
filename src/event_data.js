@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DownloadButton from './components/DownloadButton';
 import './form.css'; // CSS file
 
 function EventData() {
@@ -31,6 +32,11 @@ function EventData() {
       setKids('');
       setDesc('');
     }
+  };
+
+  const handleDownloadData = () => {
+    // This function will be implemented later to handle the actual download
+    console.log('Downloading event data...');
   };
 
   return (
@@ -121,6 +127,8 @@ function EventData() {
           {/* Submit Button */}
           <button type="submit">Submit</button>
         </form>
+        {message && <p style={{ color: messageColor }}>{message}</p>}
+        <DownloadButton onDownload={handleDownloadData} />
       </div>
     </>
   );

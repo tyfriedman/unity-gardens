@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DownloadButton from './components/DownloadButton';
 import './form.css'; // CSS file
 
 function VolunteerData() {
@@ -27,6 +28,11 @@ function VolunteerData() {
       setPeople('');
       setHours('');
     }
+  };
+
+  const handleDownloadData = () => {
+    // This function will be implemented later to handle the actual download
+    console.log('Downloading data...');
   };
 
   return (
@@ -96,6 +102,7 @@ function VolunteerData() {
           <button type="submit">Submit</button>
         </form>
         <p style={{ color: messageColor }}>{message}</p>
+        <DownloadButton onDownload={handleDownloadData} />
       </div>
     </>
   );
