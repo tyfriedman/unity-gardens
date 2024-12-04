@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { ToastContainer, toast } from 'react-toastify';
 import './form.css';
 
 function GardenGuide() {
@@ -23,7 +22,6 @@ function GardenGuide() {
   const [notes, setNotes] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('black');
-  const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -51,20 +49,6 @@ function GardenGuide() {
     }
   };
 
-  const handleSaveClick = () => { 
-    toast.success("Saved!", { autoClose: 3000 }); 
-  };
-
-  const handleCancelClick = () => {
-    setShowConfirmation(true);
-  };
-
-  const handleConfirmationClick = () => {
-    navigate('/'); // Redirect to the home page
-  };
-
-  const handleCloseConfirmation = () => setShowConfirmation(false);
-
   return (
     <>
       <Link to="/" className="back-home-button">
@@ -86,33 +70,10 @@ function GardenGuide() {
         </form>
         {message && <p style={{ color: messageColor }}>{message}</p>}
       </div>
-      <ToastContainer />
-      <Modal show={showConfirmation} onHide={handleCloseConfirmation}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirmation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to Cancel updates?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseConfirmation}>
-            No
-          </Button>
-          <Button variant="primary" onClick={handleConfirmationClick}>
-            Yes
-          </Button>
-        </Modal.Footer>
-      </Modal>
       <div className='form-div'>
         <Form>
           {/* Add form groups here */}
         </Form>
-        <div>
-          <Button variant="primary" size="lg" onClick={handleSaveClick}>
-            Save
-          </Button>{' '}
-          <Button variant="secondary" size="lg" onClick={handleCancelClick}>
-            Cancel
-          </Button>
-        </div>
       </div>
     </>
   );
