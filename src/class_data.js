@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DownloadButton from './components/DownloadButton';
 import './form.css';
 
 function ClassData() {
@@ -28,6 +29,10 @@ function ClassData() {
       setAttendanceInPerson('');
       setAttendanceOnline('');
     }
+  };
+
+  const handleDownloadData = () => {
+    console.log('Downloading class data...');
   };
 
   return (
@@ -107,7 +112,8 @@ function ClassData() {
           {/* Submit Button */}
           <button type="submit">Submit</button>
         </form>
-        <p style={{ color: messageColor }}>{message}</p>
+        {message && <p style={{ color: messageColor }}>{message}</p>}
+        <DownloadButton onDownload={handleDownloadData} />
       </div>
     </>
   );

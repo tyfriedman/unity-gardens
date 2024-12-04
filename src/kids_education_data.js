@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import DownloadButton from './components/DownloadButton';
 import './form.css';
 
 function KidsEducationData() {
@@ -29,6 +30,11 @@ function KidsEducationData() {
       setKidsAttending('');
       setDescription('');
     }
+  };
+
+  const handleDownloadData = () => {
+    // This function will be implemented later to handle the actual download
+    console.log('Downloading education data...');
   };
 
   return (
@@ -108,7 +114,8 @@ function KidsEducationData() {
           {/* Submit Button */}
           <button type="submit">Submit</button>
         </form>
-        <p style={{ color: messageColor }}>{message}</p>
+        {message && <p style={{ color: messageColor }}>{message}</p>}
+        <DownloadButton onDownload={handleDownloadData} />
       </div>
     </>
   );
