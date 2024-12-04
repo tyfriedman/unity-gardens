@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import VolunteerData from './volunteer_data';
 import ClassData from './class_data';
-import EducationData from './education_data';
+import EducationData from './kids_education_data';
 import EventData from './event_data';
 import GardenGuide from './garden_guide';
 import './App.css';
@@ -11,11 +11,11 @@ import './App.css';
 function Home() {
   return (
     <div className="nav-boxes">
-      <Link to="/volunteer_data" className="nav-box">Volunteer Form</Link>
-      <Link to="/class_data" className="nav-box">New Class Form</Link>
-      <Link to="/education_data" className="nav-box">Education Event Form</Link>
-      <Link to="/event_data" className="nav-box">New Event Form</Link>
       <Link to="/garden_guide" className="nav-box">Garden Visitor Form</Link>
+      <Link to="/volunteer_data" className="nav-box">Volunteer Form</Link>
+      <Link to="/class_data" className="nav-box">Class Form</Link>
+      <Link to="/education_data" className="nav-box">Kids Education Form</Link>
+      <Link to="/event_data" className="nav-box">Event Form</Link>
     </div>
   );
 }

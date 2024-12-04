@@ -2,31 +2,32 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './form.css';
 
-function ClassData() {
-  const [className, setClassName] = useState('');
+function KidsEducationData() {
+  const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
-  const [series, setSeries] = useState('');
-  const [attendanceInPerson, setAttendanceInPerson] = useState('');
-  const [attendanceOnline, setAttendanceOnline] = useState('');
+  const [adultsAttending, setAdultsAttending] = useState('');
+  const [kidsAttending, setKidsAttending] = useState('');
+  const [description, setDescription] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('black');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!className || !date || !location || !series || !attendanceInPerson || !attendanceOnline) {
+    if (!name || !date || !location || !adultsAttending || !kidsAttending || !description) {
       setMessage('All fields are required!');
       setMessageColor('red');
     } else {
       setMessage('Thanks for filling out the form!');
       setMessageColor('green');
-      setClassName('');
+      // Clear form
+      setName('');
       setDate('');
       setLocation('');
-      setSeries('');
-      setAttendanceInPerson('');
-      setAttendanceOnline('');
+      setAdultsAttending('');
+      setKidsAttending('');
+      setDescription('');
     }
   };
 
@@ -36,16 +37,16 @@ function ClassData() {
         Back to Home
       </Link>
       <div className="form-container">
-        <h1>New Class Form</h1>
-        <form id="classForm" onSubmit={handleSubmit}>
-          {/* Class Name */}
-          <label htmlFor="class_name">Class:</label>
+        <h1>Kids Education Form</h1>
+        <form id="kidsEducationForm" onSubmit={handleSubmit}>
+          {/* Name */}
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
-            id="class_name"
-            name="class_name"
-            value={className}
-            onChange={(e) => setClassName(e.target.value)}
+            id="name"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
 
@@ -71,38 +72,38 @@ function ClassData() {
             required
           />
 
-          {/* Series */}
-          <label htmlFor="series">Series:</label>
+          {/* Adults Attending */}
+          <label htmlFor="adults_attending">Adults Attending:</label>
           <input
-            type="text"
-            id="series"
-            name="series"
-            value={series}
-            onChange={(e) => setSeries(e.target.value)}
+            type="number"
+            id="adults_attending"
+            name="adults_attending"
+            value={adultsAttending}
+            onChange={(e) => setAdultsAttending(e.target.value)}
             required
           />
 
-          {/* Attendance In Person */}
-          <label htmlFor="attendance_in_person">Attendance In Person:</label>
+          {/* Kids Attending */}
+          <label htmlFor="kids_attending">Kids Attending:</label>
           <input
             type="number"
-            id="attendance_in_person"
-            name="attendance_in_person"
-            value={attendanceInPerson}
-            onChange={(e) => setAttendanceInPerson(e.target.value)}
+            id="kids_attending"
+            name="kids_attending"
+            value={kidsAttending}
+            onChange={(e) => setKidsAttending(e.target.value)}
             required
           />
 
-          {/* Attendance Online */}
-          <label htmlFor="attendance_online">Attendance Online:</label>
-          <input
-            type="number"
-            id="attendance_online"
-            name="attendance_online"
-            value={attendanceOnline}
-            onChange={(e) => setAttendanceOnline(e.target.value)}
+          {/* Description */}
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="4"
             required
-          />
+          ></textarea>
 
           {/* Submit Button */}
           <button type="submit">Submit</button>
@@ -113,4 +114,4 @@ function ClassData() {
   );
 }
 
-export default ClassData;
+export default KidsEducationData;
